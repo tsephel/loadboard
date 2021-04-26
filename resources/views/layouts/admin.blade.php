@@ -44,6 +44,8 @@
                     
                       <li class="nav-item"><a href="index.php" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
 
+                      <li class="nav-item"><a href="profile.php" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Users</a></li>
+
                       <li class="nav-item"><a href="profile.php" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Profile</a></li>
 
                       <li class="nav-item"><a href="truck.php?source=addtruck" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-plus text-light fa-lg mr-3 "></i>Post Trucks</a></li>
@@ -120,7 +122,7 @@
       <div class="container-fluid">
 
         <div class="row">
-          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="col-xl-12 col-lg-9 col-md-8 ml-auto">
 
           @yield('content')
 
