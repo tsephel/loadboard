@@ -1,0 +1,167 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #eee; 
+  }
+  
+  .sidebar{
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.9)), url(img/sidebar.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 5px 7px,28px,#999;
+  }
+  
+  .botton-border{
+    border-bottom: 1px groove #eee;
+  }
+  
+  .sidebar-link{
+    transition: all .4s;
+  }
+  
+  .sidebar-link:hover{
+    background-color: #444;
+    border-radius: 5px;
+  
+  }
+  
+  .current{
+    background-color: #0275d8;
+    border-radius: 7px;
+    box-shadow: 2px 5px 10px #111;
+    transition: all .3s;
+  }
+  
+  .current:hover{
+    background: #f66436;
+    border-radius: 7px;
+    box-shadow: 2px 5px 20px #111;
+    transform: translateY(-1px);
+  }
+  
+  @media(max-width: 760px){
+    .sidebar{
+      position: static;
+      height: auto;
+    }
+  
+    .top-navbar{
+      position: static;
+  
+    }
+  }
+  
+  /* end of navbar */
+  
+  
+  .table{
+    overflow-y: auto;
+  }
+  
+  
+  /* cards */
+  
+  .card{
+    box-shadow: 1px 2px 5px #999;
+    transition: all .4s;
+  
+  }
+  
+  .card:hover{
+    box-shadow: 2px 3px 15px #999;
+    transform: translateY(-1px);
+  }
+  
+  /* end of cards */
+  
+  
+  
+  /* Form */
+  .form-add{
+    background-color: rgb(219, 226, 226);
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px grey;
+  }
+  
+  .form-img{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    height: 100%;
+  }
+  
+  
+  @media only screen and (max-width: 800px) {
+    .form-img{
+      display: none;
+    }
+  }
+  
+  @media only screen and (max-width: 400px) {
+    .form-add{
+  
+        border-radius: 10px;
+      }
+  }
+  
+  
+  
+  
+  
+  
+  textarea {
+      font-size: .8rem;
+      letter-spacing: 1px;
+  }
+  textarea {
+      padding: 10px;
+      line-height: 1.5;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-shadow: 1px 1px 1px #999;
+  }
+  
+  .btn-add{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .btn-add:hover{
+    background-color: white;
+    border: 1px solid;
+    color: black;
+  }
+  
+  
+  /* profile page */
+  .profile-head {
+      transform: translateY(5rem)
+  }
+  
+  .profile img{
+    width: 120px;
+    height: 120px;
+    padding-bottom: 10px; 
+    border-radius: 20px; 
+  }
+  
+  .cover {
+      background-image: url(https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80);
+      background-size: cover;
+      background-repeat: no-repeat
+  }
+  
+  
+  
