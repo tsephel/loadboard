@@ -42,9 +42,11 @@
                   </div>
                     <ul class="navbar-nav flex-column mt-4">
                     
-                      <li class="nav-item"><a href="index.php" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
+                      <li class="nav-item"><a href="/admin" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
 
-                      <li class="nav-item"><a href="profile.php" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Users</a></li>
+                      <li class="nav-item"><a href="{{route('users.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Users</a></li>
+
+                      <li class="nav-item"><a href="{{route('users.create')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Create User</a></li>
 
                       <li class="nav-item"><a href="profile.php" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Profile</a></li>
 

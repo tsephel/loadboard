@@ -14,7 +14,7 @@
 
           <h1 class="mt-5">Create User</h1>
 
-          {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\AdminUsersController@store']) !!}
+          {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\AdminUsersController@store', 'files' => true]) !!}
 
 
           
@@ -30,13 +30,18 @@
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('status', 'Status:')}}
-                    {{ Form::select('status', array(1 => 'Active', 0 => 'Not Active' ), 0,(['class' => 'form-control'])) }}
+                    {{ Form::label('is_active', 'Status:')}}
+                    {{ Form::select('is_active', ['1' => 'Active', '0' => 'Not Active'], '0',(['class' => 'form-control'])) }}
                 </div>
 
                 <div class="form-group">
                     {{ Form::label('role_id', 'Role:')}}
                     {{ Form::select('role_id', [''=>'--Select--'] + $roles, null,(['class' => 'form-control'])) }}
+                </div>
+
+                <div class="form-group">
+                    {{ Form::label('photo_id', 'Image:')}}
+                    {{ Form::file('photo_id', (['class' => 'form-control'])) }}
                 </div>
 
                 <div class="form-group">
@@ -51,6 +56,9 @@
                 </div>
              
           {!! Form::close() !!}
+
+
+    @include('includes.form_error')
              
 
 
