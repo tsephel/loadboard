@@ -38,7 +38,7 @@
 
                   <div class="bottom-border pb-3 ">
                     <img src="images/person-1.jpg" width="50" class="rounded-circle mr-3">
-                    <a href="" class="text-white">Ngawang Sherpa</a>  
+                    <a href="" class="text-white">{{ Auth::user()->name }}</a>  
                   </div>
                     <ul class="navbar-nav flex-column mt-4">
                     
