@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\TruckCreateRequest;
 use App\Models\Trucks;
+use App\Models\Type;
 
 class AdminTruckController extends Controller
 {
@@ -29,7 +30,9 @@ class AdminTruckController extends Controller
      */
     public function create()
     {
-        return view('admin.postTruck.addTruck');
+        $types = Type::pluck('name', 'id')->all();
+
+        return view('admin.postTruck.addTruck', compact('types'));
     }
 
     /**

@@ -24,16 +24,15 @@
                         <th scope="col">Truck Owner</th>
                         <th scope="col">Contact</th>
                         <th scope="col">Origin</th>
-                        <th scope="col">DH_O</th>
+                       
                         <th scope="col">Destination</th>
-                        <th scope="col">DH-D</th>
+                      
                         <th scope="col">Truck Type</th>
                         <th scope="col">Length</th>
                         <th scope="col">Weight</th>
                         <th scope="col">Full/Partial</th>
                         <th scope="col">Available From</th>
                         <th scope="col">Available To</th>
-                        <th scope="col">Comments</th>
                         <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -48,16 +47,16 @@
                                     <td> {{$truck->user->name}} </td>
                                     <td> {{$truck->contact}} </td>
                                     <td> {{$truck->origin}} </td>
-                                    <td> {{$truck->dh_o}} </td>
+                                   
                                     <td> {{$truck->destination}} </td>
-                                    <td> {{$truck->dh_d}} </td>
-                                    <td> {{$truck->truckType_id}} </td>
+                                   
+                                    <td> {{$truck->type ? $truck->type->name : 'No category'}} </td>
                                     <td> {{$truck->length}} </td>
                                     <td> {{$truck->weight}} </td>
                                     <td> {{$truck->full == 1 ? 'Full' : 'Partial'}} </td>
                                     <td> {{$truck->startDate}} </td>
                                     <td> {{$truck->endDate}} </td>
-                                    <td> {{$truck->comments}} </td>
+                                  
 
         
                                   

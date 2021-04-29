@@ -50,8 +50,8 @@
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('truckType_id', 'Truck Type:')}}
-                    {{ Form::select('truckType_id', array(1=>'PHP', 2=>'Django'), null,(['class' => 'form-control'])) }}
+                    {{ Form::label('type_id', 'Truck Type:')}}
+                    {{ Form::select('type_id', [''=>'--Select--'] + $types, null,(['class' => 'form-control'])) }}
                 </div>
 
                 <div class="form-group">
