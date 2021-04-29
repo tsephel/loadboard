@@ -66,6 +66,11 @@ class User extends Authenticatable
 
     }
 
+    public function trucks(){
+
+        return $this->hasMany(Trucks::class);
+    }
+
 
 
 

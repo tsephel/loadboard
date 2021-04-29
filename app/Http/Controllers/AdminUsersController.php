@@ -61,15 +61,19 @@ class AdminUsersController extends Controller
             
         }
 
-
+        //checking if there is a file
         if($file = $request->file('photo_id')){
 
+            //if the file exist than we get original name
             $name = time(). $file->getClientOriginalName();
 
+            //move file to public/image/folder
             $file->move('images', $name);
 
+            //create picture
             $photo = Photo::create(['file' => $name]);
 
+            //insert id to user 
             $input['photo_id'] = $photo->id;
             
 

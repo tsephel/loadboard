@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserEditRequest extends FormRequest
+class TruckCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,15 @@ class UserEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email'=> 'required',
-            'role_id'=> 'required',
-            'is_active'=> 'required',
-
+            // 'truckType_id' => 'required',
+            // 'contact' => 'required',
+            // 'origin' => 'required',
+            // 'destination' => 'required',
+            // 'length' => 'required',
+            // 'weight' => 'required',
+            // 'full' => 'required',
+            // 'startDate' => 'required',
+            // 'endDate' => 'required',
         ];
     }
 }

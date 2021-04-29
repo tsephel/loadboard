@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AdminPostsController extends Controller
+use App\Http\Requests\TruckCreateRequest;
+use App\Models\Trucks;
+
+class AdminTruckController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +17,9 @@ class AdminPostsController extends Controller
      */
     public function index()
     {
-        //
+        $trucks = Trucks::all();
+
+       return view('admin.postTruck.index', compact('trucks'));
     }
 
     /**
@@ -23,7 +29,7 @@ class AdminPostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.postTruck.addTruck');
     }
 
     /**
@@ -32,9 +38,19 @@ class AdminPostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(TruckCreateRequest $request)
+    {   
+        //assignig input
+        $input = $request->all();
+
+        //getting logged in user
+        $user = Auth::user();
+
+        $user->truck;
+
+        $user->trucks()->create($input);
+
+        return redirect('/admin/truck');
     }
 
     /**
