@@ -16,6 +16,26 @@
 
                 <div class="col-12">
 
+                @if(session('deleted_truck'))
+                <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+                    <strong>{{ session('deleted_truck') }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                @endif
+
+                @if(session('create_truck'))
+                <div class="alert alert-info alert-dismissible fade show mt-5" role="alert">
+                    <strong>{{ session('create_truck') }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                @endif
+
                 <h3 class="text-muted text-center mt-5 mb-3">Latest Load List</h3>
                     <table class="table">
                     <thead>
@@ -53,9 +73,18 @@
                                     <td> {{$truck->type ? $truck->type->name : 'No category'}} </td>
                                     <td> {{$truck->length}} </td>
                                     <td> {{$truck->weight}} </td>
-                                    <td> {{$truck->full == 1 ? 'Full' : 'Partial'}} </td>
+                                    <td> {{$truck->full == 1 ? 'Partial' : 'Full'}} </td>
                                     <td> {{$truck->startDate}} </td>
                                     <td> {{$truck->endDate}} </td>
+                                    <td><a href="{{route('truck.edit', $truck->id)}}"><button class="btn btn-primary">Edit</button> </a></td>
+                                    <td>
+                                    {!! Form::open(['method' => 'DELETE', 'action' =>[ 'App\Http\Controllers\AdminTruckController@destroy', $truck->id], ]) !!}
+                                    <div class="form-group">
+                                        {{ Form::submit('Delete', ['class'=>'btn btn-danger'])}}
+                                    </div>
+                                    {!! Form::close() !!}
+                                    </td>
+                                   
                                   
 
         

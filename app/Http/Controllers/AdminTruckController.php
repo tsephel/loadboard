@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 use App\Http\Requests\TruckCreateRequest;
 use App\Models\Trucks;
@@ -53,6 +54,8 @@ class AdminTruckController extends Controller
 
         $user->trucks()->create($input);
 
+        Session::flash('create_truck', 'Truck has been added');
+
         return redirect('/admin/truck');
     }
 
@@ -75,7 +78,11 @@ class AdminTruckController extends Controller
      */
     public function edit($id)
     {
-        //
+        $truck = Trucks::findOrFail($id);
+
+        $types = Type::pluck('name', 'id')->all();
+
+        return view('admin.postTruck.editTruck', compact('truck', 'types'));
     }
 
     /**
@@ -87,7 +94,11 @@ class AdminTruckController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+
+        Auth::user()->trucks()->whereId($id)->first()->update($input);
+
+        return redirect('/admin/truck');
     }
 
     /**
@@ -98,6 +109,11 @@ class AdminTruckController extends Controller
      */
     public function destroy($id)
     {
-        //
+       Trucks::findOrFail($id)->delete();
+
+       Session::flash('deleted_truck', 'Truck has been deleted');
+
+       return redirect('/admin/truck');
+
     }
 }
