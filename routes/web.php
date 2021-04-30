@@ -1,12 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminTruckController;
 use App\Http\Controllers\AdminTypeController;
-
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +26,36 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/shipper', function(){
+    return view('frontend/shipper');
+});
 
+Route::get('/broker', function(){
+    return view('frontend/broker');
+});
 
-Route::get('/admin', function(){
-    return view('admin.index');
+Route::get('/carrier', function(){
+    return view('frontend/carrier');
+});
+
+Route::get('/login', function(){
+    return view('frontend/login');
 });
 
 
+Route::get('/signup', function(){
+    return view('frontend/signup');
+});
+
+
+
+
+
+
 Route::group(['middleware'=>'admin'], function(){
+
+    Route::get('/admin', [AdminController::class, 'index']);
 
     Route::resource('admin/users', AdminUsersController::class);
     Route::resource('admin/truck', AdminTruckController::class);

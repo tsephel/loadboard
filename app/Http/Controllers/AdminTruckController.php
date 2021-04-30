@@ -19,7 +19,7 @@ class AdminTruckController extends Controller
      */
     public function index()
     {
-        $trucks = Trucks::all();
+        $trucks = Trucks::paginate(10);
 
        return view('admin.postTruck.index', compact('trucks'));
     }
