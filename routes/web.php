@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminTruckController;
+use App\Http\Controllers\AdminTypeController;
 
 
 /*
@@ -36,5 +37,6 @@ Route::group(['middleware'=>'admin'], function(){
 
     Route::resource('admin/users', AdminUsersController::class);
     Route::resource('admin/truck', AdminTruckController::class);
+    Route::resource('admin/type', AdminTypeController::class);
 });
 

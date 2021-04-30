@@ -15,21 +15,23 @@ class CreateTrucksTable extends Migration
     {
         Schema::create('trucks', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->index();
-            $table->integer('type_id')->unsigned()->index();
-            $table->string('ref');
+            $table->bigInteger('user_id')->unsigned()->index()->nullable();
+            $table->bigInteger('type_id')->unsigned()->index()->nullable();
+            $table->string('ref')->nullable();
             $table->string('contact');
             $table->string('origin');
-            $table->integer('dh_o')->default(0);
+            $table->integer('dh_o')->default(0)->nullable();
             $table->string('destination');
-            $table->integer('dh_d')->default(0);
+            $table->integer('dh_d')->default(0)->nullable();
             $table->decimal('length');
             $table->decimal('weight');
             $table->integer('full')->default(0);
             $table->date('startDate');
             $table->date('endDate');
-            $table->text('comments');
+            $table->text('comments')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

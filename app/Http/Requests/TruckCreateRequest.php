@@ -24,15 +24,15 @@ class TruckCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'truckType_id' => 'required',
-            // 'contact' => 'required',
-            // 'origin' => 'required',
-            // 'destination' => 'required',
-            // 'length' => 'required',
-            // 'weight' => 'required',
-            // 'full' => 'required',
-            // 'startDate' => 'required',
-            // 'endDate' => 'required',
+            'type_id' => 'required',
+            'contact' => 'required',
+            'origin' => 'required',
+            'destination' => 'required',
+            'length' => 'required',
+            'weight' => 'required',
+            'full' => 'required',
+            'startDate' => 'required',
+            'endDate' => 'required',
         ];
     }
 }

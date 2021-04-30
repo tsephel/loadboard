@@ -14,7 +14,7 @@ class AddPhotoToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('photo_id');
+            $table->string('photo_id')->default('default.png');
         });
     }
 
