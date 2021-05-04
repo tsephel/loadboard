@@ -71,6 +71,11 @@ class User extends Authenticatable
         return $this->hasMany(Trucks::class);
     }
 
+    public function loads(){
+
+        return $this->hasMany(Loads::class);
+    }
+
 
 
 

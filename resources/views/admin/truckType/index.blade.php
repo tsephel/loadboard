@@ -50,38 +50,53 @@
 
     @include('includes.form_error')
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Image</th>
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                        @if($types)
+                    <div class="table-responsive">
+                    <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h2>Truck <b>Type</b></h2>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                            @foreach($types as $type)
+                @if($types)
 
-                                <tr>
-                                    <td> {{$type->id}} </td>
-                                    <td> {{$type->name}} </td>                              
-                                    <td><a href="{{route('type.edit', $type->id)}}"><button class="btn btn-primary">Edit</button> </a></td>
-                                    <td>
-                                    {!! Form::open(['method' => 'DELETE', 'action' =>[ 'App\Http\Controllers\AdminTypeController@destroy', $type->id], ]) !!}
-                                    <div class="form-group">
-                                        {{ Form::submit('Delete', ['class'=>'btn btn-danger'])}}
-                                    </div>
-                                    {!! Form::close() !!}
-                                    </td>
-                                </tr>
-                            @endforeach
+                        @foreach($types as $type)
+
+                            <tr>
+                                <td> {{$type->id}} </td>
+                                <td> {{$type->name}} </td>                              
+                               
+                                
+                                <td>
+                                {!! Form::open(['method' => 'DELETE', 'action' =>[ 'App\Http\Controllers\AdminTypeController@destroy', $type->id], ]) !!}
+                           
+                                    {{ Form::button('<i class="material-icons">close</i>', ['type' => 'submit', 'class' => 'delete-btn'] )  }}
+                               
+                                {!! Form::close() !!}
+                                </td>
+                            </tr>
+                        @endforeach
 
                         @endif
-
-
-                    </tbody>
-                    </table>
+            
+                  
+                </tbody>
+            </table>
+         
+        </div>
+    </div>
             
           </div><!--end div col-xl-10-->
         </div><!---end col-10-->

@@ -41,9 +41,7 @@ if(window.innerWidth < 1000) {
     })
 }
 
-window.addEventListener('resize', () => {
-    window.location.reload()
-})
+
 
 document.querySelector(".scroll-btn").addEventListener("click", () => {
   document.querySelector("html").style.scrollBehavior = "smooth";

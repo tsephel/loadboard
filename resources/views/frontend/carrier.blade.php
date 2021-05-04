@@ -1,7 +1,8 @@
-@extends('layouts.front')
+@include('includes.header')
 
 
-@section('content')
+
+@include('includes.nav_alter')
 
     
         <!----carrier section--->
@@ -21,4 +22,7 @@ Learn more in our trucking community in order to expand your current trucking en
             </div>
         <!----End of carrier section--->
 
-@stop
+
+
+@include('includes.footer')
+

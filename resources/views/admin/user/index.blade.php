@@ -36,12 +36,22 @@
 
                 @endif
 
-                <h3 class="text-muted text-center mt-5 mb-3">Latest Load List</h3>
-                    <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Image</th> 
+                <div class="table-responsive">
+                    <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h2>User <b>Management</b></h2>
+                    </div>
+                    <div class="col-sm-7">
+                        <a href="{{route('users.create')}}" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>                
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Role</th>
@@ -49,39 +59,62 @@
                         <th scope="col">Created</th>
                         <th scope="col">Updated</th>
                         <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    </tr>
+                </thead>
+                <tbody>
 
-                        @if($users)
+                @if($users)
 
                             @foreach($users as $user)
 
                                 <tr>
                                     <td> {{$user->id}} </td>
-                                    <td> <img height="50" src="{{ $user->photo ? $user->photo->file : '/images/default.png' }}"> </td>
-                                    <td> {{$user->name}} </td>
+                                    <td> <img class="avatar" src="{{ $user->photo ? $user->photo->file : '/images/default.png' }}">{{$user->name}} </td>
                                     <td> {{$user->email}} </td>
                                     <td> {{$user->role->name}} </td>
                                     <td> {{$user->is_active == 1 ? 'Active' : 'Not Active'}} </td>
+                                    <!-- <td><span class="status text-success">&bull;</span> Active</td> -->
                                     <td> {{$user->created_at->diffForHumans()}} </td>
                                     <td> {{$user->updated_at->diffForHumans()}} </td>
-                                    <td><a href="{{route('users.edit', $user->id)}}"><button class="btn btn-primary">Edit</button> </a></td>
-                                    <td>
-                                    {!! Form::open(['method' => 'DELETE', 'action' =>[ 'App\Http\Controllers\AdminUsersController@destroy', $user->id], ]) !!}
-                                    <div class="form-group">
-                                        {{ Form::submit('Delete', ['class'=>'btn btn-danger'])}}
-                                    </div>
-                                    {!! Form::close() !!}
+
+            
+
+                                    <td class="actions"><a href="{{route('users.edit', $user->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">edit</i></a>
+
+                                   <a> {!! Form::open(['method' => 'DELETE', 'action' =>[ 'App\Http\Controllers\AdminUsersController@destroy', $user->id], ]) !!}
+                                   
+                                        <!-- {{ Form::submit('Delete', ['class'=>'btn btn-danger'])}} -->
+                                        {{ Form::button('<i class="material-icons">close</i>', ['type' => 'submit', 'class' => 'delete-btn'] )  }}
+                                        <!-- <a href="#" class="delete" title="Delete" data-toggle="tooltip"><input type='submit'><i class="material-icons" type="submit">close</i></input></a> -->
+                                  
+                                    {!! Form::close() !!}</a>
                                     </td>
                                 </tr>
                             @endforeach
 
                         @endif
+              
+              
+                 
+                
+                  
+                </tbody>
+            </table>
+            <div class="clearfix">
+                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                <ul class="pagination">
+                    <li class="page-item disabled"><a href="#">Previous</a></li>
+                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                    <li class="page-item"><a href="#" class="page-link">4</a></li>
+                    <li class="page-item"><a href="#" class="page-link">5</a></li>
+                    <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-
-                    </tbody>
-                    </table>
                 </div>
           </div>
         </div><!---end col-10-->
@@ -90,3 +123,13 @@
  </section>
 
 @endsection
+
+@section('scripts')
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+@stop

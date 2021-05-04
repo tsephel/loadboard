@@ -1,23 +1,17 @@
-@extends('layouts.front')
+@include('includes.header')
 
 
-@section('header')
 
-    <div class="banner">
+@include('includes.navbar')
+
+<div class="banner">
             <h1 class="banner-heading">Transport Solution</h1>
             <p class="banner-paragraph">FIND & SCHEDULE YOUR FAST AND SECURE MOVE HERE.</p>
             <button class="blue-btn">Learn More</button>
         </div>
 
-       
-@stop
 
-
-@section('content')
-
-
-        <div class="container">
-        <!-- Front Page -->
+   
         <div class="front-page">
             <!-- Section 2 -->
             <section class="section-2">
@@ -44,6 +38,82 @@
                 </div>
             </section>
             <!-- End of Section 2 -->
+            
+            <section class="section-3">
+
+                <h1 class="section-3-heading">Choose your package</h1>
+
+                <div class="subscription">
+
+            
+
+            <div class="pricingTable">
+                <div class="pricingTable-header">
+                    <h3 class="title">Enhance</h3>
+                    <span class="currency">$</span>
+                    <span class="price-value">69</span>
+                    <span class="month">per month</span>
+                </div>
+                <div class="pricing-content">
+                    <ul>
+                        <li><span>.</span>Avg rates for past 30 days</li>
+                        <li><span>.</span>Our most popular plan</li>
+                        <li><span>.</span>Broker credit scores</li>
+                        <li><span>.</span>Broker avg days-to-pay</li>
+                        <li><span>.</span>Plus all Standard features</li>
+                    </ul>
+                    <a class="pricingTable-signup" href="#">Sign up</a>
+                </div>
+            </div>
+   
+ 
+    
+            <div class="pricingTable">
+                <div class="pricingTable-header">
+                    <h3 class="title">Professional</h3>
+                    <span class="currency">$</span>
+                    <span class="price-value">99</span>
+                    <span class="month">per month</span>
+                </div>
+                <div class="pricing-content">
+                    <ul>
+                    <li><span>.</span>Avg rates for past 30 days</li>
+                        <li><span>.</span>Our most popular plan</li>
+                        <li><span>.</span>Broker credit scores</li>
+                        <li><span>.</span>Broker avg days-to-pay</li>
+                        <li><span>.</span>Plus all Standard features</li>
+                    </ul>
+                    <a class="pricingTable-signup" href="#">Sign up</a>
+                </div>
+            </div>
+
+
+
+      
+            <div class="pricingTable">
+                <div class="pricingTable-header">
+                    <h3 class="title">Power</h3>
+                    <span class="currency">$</span>
+                    <span class="price-value">159</span>
+                    <span class="month">per month</span>
+                </div>
+                <div class="pricing-content">
+                    <ul>
+                    <li><span>.</span>Avg rates for past 30 days</li>
+                        <li><span>.</span>Our most popular plan</li>
+                        <li><span>.</span>Broker credit scores</li>
+                        <li><span>.</span>Broker avg days-to-pay</li>
+                        <li><span>.</span>Plus all Standard features</li>
+                    </ul>
+                    <a class="pricingTable-signup" href="#">Sign up</a>
+                </div>
+            </div>
+   
+        
+
+        </div>
+
+            </section>
 
             <!-- Contact Form -->
              <section class="contact" id="contact">
@@ -72,4 +142,6 @@
 		        </div>
 		      </section>
 
-@stop
+
+          @include('includes.footer')
+    

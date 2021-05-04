@@ -16,12 +16,16 @@
 
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+
 
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   
 </head>
@@ -38,10 +42,10 @@
           <div class="row">
             <!----side bar --->
               <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
-                  <a class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 botton-border" href="/home">Load Max</a>
+                  <a class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 botton-border" href="/">Load Max</a>
 
                   <div class="bottom-border pb-3 ">
-                    <img src="images/person-1.jpg" width="50" class="rounded-circle mr-3">
+                    <img src="{{Auth::user()->photo->file}}" width="50" class="rounded-circle mr-3">
                     <a href="" class="text-white">{{ Auth::user()->name }}</a>  
                   </div>
                     <ul class="navbar-nav flex-column mt-4">
@@ -50,19 +54,19 @@
 
                       <li class="nav-item"><a href="{{route('users.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Users</a></li>
 
-                      <li class="nav-item"><a href="{{route('users.create')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Create User</a></li>
+                      <!-- <li class="nav-item"><a href="{{route('users.create')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Create User</a></li> -->
 
-                      <li class="nav-item"><a href="profile.php" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Profile</a></li>
+                      <li class="nav-item"><a href="{{route('profile.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Profile</a></li>
 
-                      <li class="nav-item"><a href="{{route('type.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Add Truck Type</a></li>
+                      <!-- <li class="nav-item"><a href="{{route('type.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Add Truck Type</a></li> -->
 
-                      <li class="nav-item"><a href="{{route('truck.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Truck List</a></li>
+                      <li class="nav-item"><a href="{{route('truck.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Truck</a></li>
 
-                      <li class="nav-item"><a href="{{route('truck.create')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-plus text-light fa-lg mr-3 "></i>Post Trucks</a></li>
+                      <!-- <li class="nav-item"><a href="{{route('truck.create')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-plus text-light fa-lg mr-3 "></i>Post Trucks</a></li> -->
 
                       <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-search text-light fa-lg mr-3 "></i>Search Loads</a></li>
 
-                      <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-plus text-light fa-lg mr-3 "></i>Post Loads</a></li>
+                      <li class="nav-item"><a href="{{route('load.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-plus text-light fa-lg mr-3 "></i>Loads</a></li>
 
                       <li class="nav-item"><a href="truck.php?source=searchtruck" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-search text-light fa-lg mr-3 "></i>Search Trucks</a></li>
 
@@ -101,6 +105,8 @@
   </nav>
     <!----end nav bar --->
 
+ 
+
     <!---model --->
     <div class="modal" id="signout">
 
@@ -117,7 +123,15 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-success" data-dismiss="modal">Stay Here</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Logout</button>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <button type="button" class="btn btn-success" data-dismiss="modal">{{ __('Logout') }}</button>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
           </div>
 
         </div><!--content end-->

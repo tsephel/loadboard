@@ -1,7 +1,11 @@
-@extends('layouts.front')
+@include('includes.header')
 
 
-@section('content')
+
+@include('includes.nav_alter')
+  
+
+
 
          <!----carrier section--->
          <div class="transport" id="transport">
@@ -18,4 +22,6 @@
             </div>
         <!----End of carrier section--->
 
-@stop
+
+
+@include('includes.footer')

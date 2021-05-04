@@ -1,7 +1,8 @@
-@extends('layouts.front')
+@include('includes.header')
 
 
-@section('content')
+
+@include('includes.nav_alter')
             <!----carrier section--->
             <div class="transport" id="transport">
               <h1 class="transport-heading">Shippers</h1>
@@ -20,4 +21,4 @@ Learn more in our trucking community in order to expand your current trucking en
         <!----End of carrier section--->
 
 
-@stop
+        @include('includes.footer')
