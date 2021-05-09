@@ -116,4 +116,37 @@ class AdminTruckController extends Controller
        return redirect('/admin/truck');
 
     }
+
+
+    public function searchTruck(Request $request){
+        $types = Type::all();
+
+        // Get the search value from the request
+        $origin = $request->input('origin');
+        $destination = $request->input('destination');
+        $type = $request->input('type_id');
+        $length = $request->input('length');
+        $weight = $request->input('weight');
+        $full = $request->input('full');
+        $startDate = $request->input('startDate');
+        $endDate = $request->input('endDate');
+    
+        // Search in the title and body columns from the posts table
+        $trucks = Trucks::query()
+            ->where('origin', 'LIKE', "%{$origin}%")
+            ->Where('destination', 'LIKE', "%{$destination}%")
+            ->Where('type_id', 'LIKE', "%{$type}%")
+            ->Where('length', 'LIKE', "%{$length}%")
+            ->Where('weight', 'LIKE', "%{$weight}%")
+            ->Where('full', 'LIKE', "%{$full}%")
+            ->Where('startDate', 'LIKE', "%{$startDate}%")
+            ->Where('endDate', 'LIKE', "%{$endDate}%")
+            ->get();
+
+    
+        // Return the search view with the resluts compacted
+        return view('admin.postTruck.searchTruck', compact('trucks', 'types'));
+    }
+
+
 }

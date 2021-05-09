@@ -12,7 +12,7 @@
         <div class="row">
           <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
 
-          <h1 class="mt-5">Add Trucks</h1>
+          <h1 class="mt-5">Add Loads</h1>
 
           {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\AdminLoadController@store']) !!}
 

@@ -66,6 +66,32 @@ class User extends Authenticatable
 
     }
 
+
+    public function isShipper(){
+
+        if($this->role->name == 'shipper' && $this->is_active == 1){
+
+            return true;
+
+        }
+
+        return false;
+
+    }
+
+    public function isCarrier(){
+
+        if($this->role->name == 'carrier' && $this->is_active == 1){
+
+            return true;
+
+        }
+
+        return false;
+
+    }
+    
+
     public function trucks(){
 
         return $this->hasMany(Trucks::class);

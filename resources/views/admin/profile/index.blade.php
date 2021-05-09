@@ -19,7 +19,7 @@
                         <div class="px-4 pt-0 pb-4 cover">
                             <div class="media align-items-end profile-head">
                                 <div class="profile mr-3">
-                                  <img src=" {{$user->photo->file}} ">
+                                  <img src=" {{Auth::user()->photo ? Auth::user()->photo->file : '/images/default.png'}} ">
                                   <a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a>
                                 </div>
                                 <div class="media-body mb-5 text-white">

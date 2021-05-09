@@ -114,4 +114,37 @@ class AdminLoadController extends Controller
 
        return redirect('/admin/load');
     }
+
+
+    public function searchLoad(Request $request){
+        $types = Type::all();
+
+        // Get the search value from the request
+        $origin = $request->input('origin');
+        $destination = $request->input('destination');
+        $type = $request->input('type_id');
+        $length = $request->input('length');
+        $weight = $request->input('weight');
+        $full = $request->input('full');
+        $startDate = $request->input('startDate');
+    
+        // Search in the title and body columns from the posts table
+        $loads = Loads::query()
+            ->where('origin', 'LIKE', "%{$origin}%")
+            ->Where('destination', 'LIKE', "%{$destination}%")
+            ->Where('type_id', 'LIKE', "%{$type}%")
+            ->Where('length', 'LIKE', "%{$length}%")
+            ->Where('weight', 'LIKE', "%{$weight}%")
+            ->Where('full', 'LIKE', "%{$full}%")
+            ->Where('startDate', 'LIKE', "%{$startDate}%")
+            
+            ->get();
+
+    
+        // Return the search view with the resluts compacted
+        return view('admin.postLoad.searchLoad', compact('loads', 'types'));
+    }
+
+
+
 }
