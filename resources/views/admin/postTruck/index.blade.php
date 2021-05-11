@@ -46,7 +46,7 @@
                         <h2>Truck <b>Type</b></h2>
                     </div>
                     <div class="col-sm-7">
-                        <a href="{{route('truck.create')}}" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>                
+                        <a href="{{route('truck.create')}}" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Loads</span></a>                
                     </div>
                 </div>
             </div>

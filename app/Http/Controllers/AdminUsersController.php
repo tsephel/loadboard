@@ -79,8 +79,6 @@ class AdminUsersController extends Controller
 
         }
 
-       
-
 
         User::create($input);
 

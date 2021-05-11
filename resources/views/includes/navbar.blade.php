@@ -98,7 +98,7 @@
                         
                         
                             @else
-                            <a href="/admin"><button class="navbar-btn login-btn login">Admin</button>
+                            <a href="/profile"><button class="navbar-btn login-btn login">Admin</button>
                             <a class="navbar-btn signup-btn login" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">

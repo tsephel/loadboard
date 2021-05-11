@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminTruckController;
 use App\Http\Controllers\AdminTypeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminLoadController;
+use App\Http\Controllers\VerifyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ use App\Http\Controllers\AdminLoadController;
 
 Auth::routes();
 
-Route::resource('admin/profile', ProfileController::class);
+
 
 Route::get('/', function(){
     return view('frontend/home');
@@ -44,17 +45,27 @@ Route::get('/carrier', function(){
     return view('frontend/carrier');
 });
 
+
+Route::group(['middleware'=>['auth']], function(){
+
+    Route::resource('/admin/users', AdminUsersController::class);
+    Route::resource('/admin/type', AdminTypeController::class);
+    Route::resource('/admin/verify', VerifyController::class);
+
+
+
+
+});
+
+
 Route::group(['middleware'=>['auth']], function(){
 
     Route::get('/admin', [AdminController::class, 'index']);
-
-    Route::resource('/admin/users', AdminUsersController::class);
     Route::resource('/admin/truck', AdminTruckController::class);
-    Route::resource('/admin/type', AdminTypeController::class);
     Route::resource('/admin/load', AdminLoadController::class);
-
+    Route::resource('/profile', ProfileController::class);
     Route::get('truck/search/', [ AdminTruckController::class, 'searchTruck'])->name('searchTruck');
-
     Route::get('load/search/', [ AdminLoadController::class, 'searchLoad'])->name('searchLoad');
 
 });
+

@@ -50,31 +50,32 @@
                   </div>
                     <ul class="navbar-nav flex-column mt-4">
                     
-                      <li class="nav-item"><a href="/admin" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
+                     
 
                       @if (Auth::user()->isAdmin())
-                          <li class="nav-item"><a href="{{route('users.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Users</a></li>
+                         <li class="nav-item"><a href="/admin" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
 
-                          <!-- <li class="nav-item"><a href="{{route('users.create')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Create User</a></li> -->
+                          <li class="nav-item"><a href="{{route('verify.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-check text-light fa-lg mr-3 "></i>Business Verification</a></li>
 
-                        
+                          <li class="nav-item"><a href="{{route('users.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>User</a></li>
+
                           
-                          <li class="nav-item"><a href="{{route('type.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Add Truck Type</a></li>
+                          <li class="nav-item"><a href="{{route('type.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-plus text-light fa-lg mr-3 "></i>Add Truck Type</a></li>
                           
-                          <li class="nav-item"><a href="{{route('truck.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Truck</a></li>
+                          <li class="nav-item"><a href="{{route('truck.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-plus text-light fa-lg mr-3 "></i>Truck</a></li>
 
                         <!-- <li class="nav-item"><a href="{{route('truck.create')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-plus text-light fa-lg mr-3 "></i>Post Trucks</a></li> -->
 
-                        <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-search text-light fa-lg mr-3 "></i>Search Loads</a></li>
+                        <!-- <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-search text-light fa-lg mr-3 "></i>Search Loads</a></li> -->
 
                         <li class="nav-item"><a href="{{route('load.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-plus text-light fa-lg mr-3 "></i>Loads</a></li>
 
-                        <li class="nav-item"><a href="{{route('searchTruck')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-search text-light fa-lg mr-3 "></i>Search Trucks</a></li>
+                        <!-- <li class="nav-item"><a href="{{route('searchTruck')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-search text-light fa-lg mr-3 "></i>Search Trucks</a></li> -->
                       @endif
 
 
                     
-                      <li class="nav-item"><a href="{{route('profile.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Profile</a></li>
+                     
                       
 
 
@@ -83,7 +84,9 @@
 
                       @if (Auth::user()->isShipper())
 
-                
+                      <li class="nav-item"><a href="/admin" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
+
+                      <li class="nav-item"><a href="{{route('profile.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Profile</a></li>
 
                         <li class="nav-item"><a href="{{route('truck.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Truck</a></li>
 
@@ -100,7 +103,9 @@
                      
                       @if (Auth::user()->isCarrier())
 
-                     
+                      <li class="nav-item"><a href="/admin" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
+
+                      <li class="nav-item"><a href="{{route('profile.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Profile</a></li>
 
                       <li class="nav-item"><a href="{{route('load.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-plus text-light fa-lg mr-3 "></i>Loads</a></li>
 

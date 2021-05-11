@@ -46,6 +46,10 @@
                     <div class="col-sm-5">
                         <h2>Load <b>List</b></h2>
                     </div>
+
+                    <div class="col-sm-7">
+                        <a href="{{route('load.create')}}" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Loads</span></a>                
+                    </div>
                  
                 </div>
             </div>
@@ -90,6 +94,16 @@
                                 <td> {{$load->full == 1 ? 'Partial' : 'Full'}} </td>
                                 <td> {{$load->startDate}} </td>
                                 <td> ${{$load->offer}} </td>
+
+                                <td class="action">
+                                <a href="{{route('load.edit', $load->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">edit</i></a>
+                                
+                                <a>{!! Form::open(['method' => 'DELETE', 'action' =>[ 'App\Http\Controllers\AdminLoadController@destroy', $load->id], ]) !!}
+                                
+                                {{ Form::button('<i class="material-icons">close</i>', ['type' => 'submit', 'class' => 'delete-btn'] )  }}
+                               
+                                {!! Form::close() !!}</a>
+                                </td>
                               
                             
                             

@@ -1198,6 +1198,15 @@ html {
   .pricingTable{ margin-bottom: 40px; }
 }
 
+@media only screen and (max-width: 600px){
+  .subscription{
+   
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+  
+  }
+}
+
 @media (min-width: 768px) {
   .subscription {
     width: 750px;

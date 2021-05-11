@@ -28,11 +28,11 @@
 
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm passowrd" required autocomplete="new-password">
                         
-                            <!-- <select name='role_id' class="form-control">
+                            <select name='role_id' class="form-control">
                             @foreach (\App\Models\Role::select('id','name')->get() as $role)
                                 <option value="{{ $role->id }}">{{ $role->name }}</option>
                             @endforeach
-                            </select> -->
+                            </select>
 
                     <input type="submit" class="form-login-btn" value="Log In">
               

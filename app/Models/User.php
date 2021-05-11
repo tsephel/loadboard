@@ -102,6 +102,11 @@ class User extends Authenticatable
         return $this->hasMany(Loads::class);
     }
 
+    public function verify(){
+
+        return $this->hasMany(BusinessVerify::class);
+    }
+
 
 
 

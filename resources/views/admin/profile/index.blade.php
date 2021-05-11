@@ -10,6 +10,16 @@
         <div class="row">
           <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
 
+          @if(session('verify_user'))
+                <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+                    <strong>{{ session('verify_user') }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                @endif
+
 
 
             <div class="row py-md-5 px-md-4 p-0">
@@ -20,7 +30,7 @@
                             <div class="media align-items-end profile-head">
                                 <div class="profile mr-3">
                                   <img src=" {{Auth::user()->photo ? Auth::user()->photo->file : '/images/default.png'}} ">
-                                  <a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a>
+                                  <a href="{{route('profile.edit', $user->id)}}" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a>
                                 </div>
                                 <div class="media-body mb-5 text-white">
                                     <h4 class="mt-0 mb-0"> {{$user->name}} </h4>
@@ -28,6 +38,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        
 
 
                         <div class="bg-light p-4 d-flex justify-content-end text-center">
@@ -57,20 +69,41 @@
                             </div>
                         </div>
 
-                        
+            @if($user->is_active == 1)
+
+
             <div class="table-responsive">
                     <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                        <h2>Truck <b>Type</b></h2>
+                    @if($user->role->name == 'shipper')
+                        <h2>Truck <b>List</b></h2>
+                    @elseif($user->role->name == 'carrier')
+                         <h2>Load <b>List</b></h2>
+                    
+                    @endif
                     </div>
+
+                  
                     <div class="col-sm-7">
-                        <a href="{{route('truck.create')}}" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>                
+                    @if($user->role->name == 'shipper')
+
+                        <a href="{{route('truck.create')}}" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Trucks</span></a>   
+
+                        @elseif($user->role->name == 'carrier') 
+
+                        <a href="{{route('load.create')}}" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Loads</span></a>   
+
+
+                                @endif            
                     </div>
+               
                 </div>
             </div>
             <table class="table table-striped table-hover">
+
+            @if($trucks && $user->role->name == 'shipper')
                 <thead>
                     <tr>
               
@@ -93,7 +126,7 @@
                 </thead>
                 <tbody>
 
-                @if($trucks)
+               
 
                         @foreach($trucks as $truck)
 
@@ -128,10 +161,73 @@
                             </tr>
                         @endforeach
 
-                        @endif
-            
+                      
                   
                 </tbody>
+
+                @elseif($loads && $user->role->name == 'carrier')
+
+                <thead>
+                    <tr>
+              
+                        <th scope="col">Ref_no</th>
+                        <th scope="col">Load Owner</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">Origin</th>                      
+                        <th scope="col">Destination</th>
+                        <th scope="col">Dock Hour</th>
+                        <th scope="col">Truck Type</th>
+                        <th scope="col">Length</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Full/Partial</th>
+                        <th scope="col">Pick Up Date</th>
+                        <th scope="col">Rate per mile</th>
+                 
+                        </tr>
+                  
+                </thead>
+                <tbody>
+
+
+                        @foreach($loads as $load)
+
+                            <tr>
+                                <td> {{$load->ref}} </td>
+                                <td> {{$load->user->name}} </td>
+                                <td> {{$load->contact}} </td>
+                                <td> {{$load->origin}} </td>
+                            
+                                <td> {{$load->destination}} </td>
+                                <td> {{$load->dock}} </td>
+                            
+                                <td> {{$load->type ? $load->type->name : 'No category'}} </td>
+                                <td> {{$load->length}} </td>
+                                <td> {{$load->weight}} </td>
+                                <td> {{$load->full == 1 ? 'Partial' : 'Full'}} </td>
+                                <td> {{$load->startDate}} </td>
+                                <td> ${{$load->offer}} </td>
+
+                                <td class="action">
+                                <a href="{{route('load.edit', $load->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">edit</i></a>
+                                
+                                <a>{!! Form::open(['method' => 'DELETE', 'action' =>[ 'App\Http\Controllers\AdminLoadController@destroy', $load->id], ]) !!}
+                                
+                                {{ Form::button('<i class="material-icons">close</i>', ['type' => 'submit', 'class' => 'delete-btn'] )  }}
+                               
+                                {!! Form::close() !!}</a>
+                                </td>
+                              
+                            
+                            
+
+
+                            
+                            </tr>
+                        @endforeach
+                  
+                </tbody>
+
+                @endif
             </table>
 
             <div class="clearfix">
@@ -149,8 +245,53 @@
          
         </div>
     </div><!---end table responsive div---->
+    @else
+
+   
+
+    <div class="container py-5 verify">
+
+    <!-- For demo purpose -->
+    <header class="text-center text-white">
+        <h1 class="display-4">Business Verification</h1>
+        <p class="lead mb-0">Please upload your business liscense for verification purpose.</p>
+
+    </header>
 
 
+    <div class="row py-4">
+        <div class="col-lg-6 mx-auto">
+        {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\ProfileController@store', 'files' => true]) !!}
+
+        <div class="form-group">
+            <input type="name" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Company name">
+            <small id="emailHelp" class="form-text text-muted">Enter name of your company</small>
+        </div>
+
+            <!-- Upload image input-->
+            <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                <input id="upload" name="photo_id" type="file" onchange="readURL(this);" class="form-control border-0">
+                <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
+                <div class="input-group-append">
+                    <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                </div>
+            </div>
+
+            <!-- Uploaded image area-->
+            <p class="font-italic text-white text-center">The image uploaded will be rendered inside the box below.</p>
+            <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary mt-4 p-2">Upload</button>
+            </div>
+
+            {!! Form::close() !!}
+
+        </div>
+    </div>
+</div>
+
+    @endif
 
              
                     </div>
@@ -169,5 +310,47 @@
 
     </section>
 
+
+    @endsection
+
+
+@section('scripts')
+
+
+<script>
+/*  ==========================================
+    SHOW UPLOADED IMAGE
+* ========================================== */
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#imageResult')
+                .attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$(function () {
+    $('#upload').on('change', function () {
+        readURL(input);
+    });
+});
+
+/*  ==========================================
+    SHOW UPLOADED IMAGE NAME
+* ========================================== */
+var input = document.getElementById( 'upload' );
+var infoArea = document.getElementById( 'upload-label' );
+
+input.addEventListener( 'change', showFileName );
+function showFileName( event ) {
+  var input = event.srcElement;
+  var fileName = input.files[0].name;
+  infoArea.textContent = 'File name: ' + fileName;
+}
+</script>
 
 @stop
