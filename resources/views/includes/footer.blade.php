@@ -1,6 +1,65 @@
 
+ <footer class="footer-distributed">
+ 
+ <div class="footer-left">
+ 
+ <h3>Load<span>Max</span></h3>
+ 
+ <p class="footer-links">
+ <a href="{{ url('/') }}">Home</a>
+ ·
+ <a href="{{ url('/broker') }}">Broker</a>
+ ·
+ <a href="{{ url('/broker') }}">Shipper</a>
+ ·
+ <a href="{{ url('/broker') }}">Carriert</a>
+ ·
+ <a href="{{ url('/login') }}">Login</a>
+ ·
+ <a href="{{ url('/register') }}">Sign Up</a>
+ </p>
+ 
+ <p class="footer-company-name">Loadmax &copy; 2021</p>
+ </div>
+ 
+ <div class="footer-center">
+ 
+ <div>
+ <i class="fa fa-map-marker"></i>
+ <p><span>21 Revolution Street</span> USA</p>
+ </div>
+ 
+ <div>
+ <i class="fa fa-phone"></i>
+ <p>+977 9801230123</p>
+ </div>
+ 
+ <div>
+ <i class="fa fa-envelope"></i>
+ <p><a href="mailto:support@company.com">loadmax@gmail.com</a></p>
+ </div>
+ 
+ </div>
+ 
+ <div class="footer-right">
+ 
+ <p class="footer-company-about">
+ <span>About the company</span>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
+ </p>
+ 
+ <div class="footer-icons">
+ 
+ <a href="#"><i class="fa fa-facebook"></i></a>
+ <a href="#"><i class="fa fa-twitter"></i></a>
+ <a href="#"><i class="fa fa-linkedin"></i></a>
 
-<p class="copyright">Copyright &copy; Aiinterf All Rights Reserved</p>
+ 
+ </div>
+ 
+ </div>
+ 
+ </footer>
 
 
 <a href="#" class="scroll-btn">

@@ -43,7 +43,7 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                        <h2>Truck <b>Type</b></h2>
+                        <h2>Truck <b>List</b></h2>
                     </div>
                     <div class="col-sm-7">
                         <a href="{{route('truck.create')}}" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Loads</span></a>                
@@ -65,6 +65,8 @@
                         <th scope="col">Length</th>
                         <th scope="col">Weight</th>
                         <th scope="col">Full/Partial</th>
+                        <th scope="col"> Rate Per Mile</th>
+                       
                         <th scope="col">Available From</th>
                         <th scope="col">Available To</th>
                         <th scope="col">Actions</th>
@@ -89,6 +91,7 @@
                                 <td> {{$truck->length}} </td>
                                 <td> {{$truck->weight}} </td>
                                 <td> {{$truck->full == 1 ? 'Partial' : 'Full'}} </td>
+                                <td> {{$truck->offer}} </td>
                                 <td> {{$truck->startDate}} </td>
                                 <td> {{$truck->endDate}} </td>
                                 <td class="action">

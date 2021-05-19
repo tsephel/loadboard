@@ -90,6 +90,20 @@ class User extends Authenticatable
         return false;
 
     }
+
+    
+    public function isBroker(){
+
+        if($this->role->name == 'broker' && $this->is_active == 1){
+
+            return true;
+
+        }
+
+        return false;
+
+    }
+    
     
 
     public function trucks(){

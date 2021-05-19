@@ -19,6 +19,8 @@ class CreateBusinessVerifiesTable extends Migration
             $table->string('name');
             $table->string('photo_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

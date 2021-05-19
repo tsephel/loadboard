@@ -18,6 +18,7 @@ class Trucks extends Model
         'length',
         'weight',
         'full',
+        'offer',
         'startDate',
         'endDate',
         'comments',

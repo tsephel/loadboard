@@ -68,7 +68,7 @@
                         <th scope="col">Weight</th>
                         <th scope="col">Full/Partial</th>
                         <th scope="col">Pick Up Date</th>
-                        <th scope="col">Rate per mile</th>
+                        <th scope="col">Payable amount</th>
                         <th scope="col">Actions</th>
                  
                         </tr>

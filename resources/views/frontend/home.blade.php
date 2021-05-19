@@ -9,7 +9,9 @@
             <p class="banner-paragraph">FIND & SCHEDULE YOUR FAST AND SECURE MOVE HERE.</p>
             <button class="blue-btn">Learn More</button>
         </div>
+        
 
+       
 
    
         <div class="front-page">
@@ -38,6 +40,27 @@
                 </div>
             </section>
             <!-- End of Section 2 -->
+
+            <div class="section-about">
+
+<div class="about-section">
+    <div class="inner-container">
+        <h1>About Us</h1>
+        <p class="text">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+        </p>
+
+        <div class="role">
+            <span>Shipper</span>
+            <span>Broker</span>
+            <span>Carrier</span>
+        </div>
+    </div>
+</div>
+
+</div>
+
+          
             
             <section class="section-3">
 

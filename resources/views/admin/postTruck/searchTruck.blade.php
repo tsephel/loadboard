@@ -121,6 +121,7 @@
                         <th scope="col">Length</th>
                         <th scope="col">Weight</th>
                         <th scope="col">Full/Partial</th>
+                        <th scope="col"> Rate Per Mile</th>
                         <th scope="col">Available From</th>
                         <th scope="col">Available To</th>
 
@@ -145,6 +146,7 @@
                                 <td> {{$truck->length}} </td>
                                 <td> {{$truck->weight}} </td>
                                 <td> {{$truck->full == 1 ? 'Partial' : 'Full'}} </td>
+                                <td> {{$truck->offer}} </td>
                                 <td> {{$truck->startDate}} </td>
                                 <td> {{$truck->endDate}} </td>
 

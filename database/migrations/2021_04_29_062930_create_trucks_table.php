@@ -26,6 +26,7 @@ class CreateTrucksTable extends Migration
             $table->decimal('length');
             $table->decimal('weight');
             $table->integer('full')->default(0);
+            $table->decimal('offer')->nullable();
             $table->date('startDate');
             $table->date('endDate');
             $table->text('comments')->nullable();

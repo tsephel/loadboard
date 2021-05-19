@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('offer', 'Rate Per Mile:')}}
+                    {{ Form::label('offer', 'Payable amount:')}}
                     {{ Form::text('offer', null,(['class' => 'form-control'])) }}
                 </div>
 

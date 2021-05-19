@@ -118,6 +118,8 @@
                         <th scope="col">Length</th>
                         <th scope="col">Weight</th>
                         <th scope="col">Full/Partial</th>
+                        <th scope="col">Rate per mile</th>
+                        
                         <th scope="col">Available From</th>
                         <th scope="col">Available To</th>
                         <th scope="col">Actions</th>
@@ -142,6 +144,7 @@
                                 <td> {{$truck->length}} </td>
                                 <td> {{$truck->weight}} </td>
                                 <td> {{$truck->full == 1 ? 'Partial' : 'Full'}} </td>
+                                <td> ${{$load->offer}} </td>
                                 <td> {{$truck->startDate}} </td>
                                 <td> {{$truck->endDate}} </td>
                                 <td class="action">
@@ -180,7 +183,7 @@
                         <th scope="col">Length</th>
                         <th scope="col">Weight</th>
                         <th scope="col">Full/Partial</th>
-                        <th scope="col">Pick Up Date</th>
+                        <th scope="col">Payable amount</th>
                         <th scope="col">Rate per mile</th>
                  
                         </tr>
@@ -254,7 +257,7 @@
     <!-- For demo purpose -->
     <header class="text-center text-white">
         <h1 class="display-4">Business Verification</h1>
-        <p class="lead mb-0">Please upload your business liscense for verification purpose.</p>
+        <p class="lead mb-0">Please send your business liscense for verification purpose.</p>
 
     </header>
 
@@ -282,7 +285,7 @@
             <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
 
             <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary mt-4 p-2">Upload</button>
+                <button type="submit" class="btn btn-primary mt-4 p-2">Send for verification</button>
             </div>
 
             {!! Form::close() !!}

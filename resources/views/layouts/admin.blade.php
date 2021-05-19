@@ -112,6 +112,24 @@
                       <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-search text-light fa-lg mr-3 "></i>Search Trucks</a></li>
 
                       @endif
+
+                                      
+                      @if (Auth::user()->isBroker())
+
+                      <li class="nav-item"><a href="/admin" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
+
+                      <li class="nav-item"><a href="{{route('profile.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Profile</a></li>
+
+                      <li class="nav-item"><a href="{{route('load.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-plus text-light fa-lg mr-3 "></i>Loads</a></li>
+
+                      <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-search text-light fa-lg mr-3 "></i>Search Trucks</a></li>
+
+                      <li class="nav-item"><a href="{{route('truck.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Truck</a></li>
+
+<!-- <li class="nav-item"><a href="{{route('truck.create')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-plus text-light fa-lg mr-3 "></i>Post Trucks</a></li> -->
+
+<li class="nav-item"><a href="{{route('searchLoad')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-search text-light fa-lg mr-3 "></i>Search Loads</a></li>
+                      @endif
                   </ul>
 
               </div>

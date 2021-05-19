@@ -70,6 +70,11 @@
                 </div>
 
                 <div class="form-group">
+                    {{ Form::label('offer', 'Rate per mile:')}}
+                    {{ Form::text('offer', null,(['class' => 'form-control'])) }}
+                </div>
+
+                <div class="form-group">
                     {{ Form::label('startDate', 'Available From:')}}
                     {{ Form::date('startDate', \Carbon\Carbon::now()) }}
                 </div>
