@@ -1,5 +1,14 @@
 @include('includes.header')
 
+@if(session('approve_subscription'))
+                <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+                    <strong>{{ session('approve_subscription') }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                @endif
 
 
 @include('includes.navbar')
@@ -68,13 +77,11 @@
 
                 <div class="subscription">
 
-            
-
             <div class="pricingTable">
                 <div class="pricingTable-header">
-                    <h3 class="title">Enhance</h3>
+                    <h3 class="title">{{$basic->slug}}</h3>
                     <span class="currency">$</span>
-                    <span class="price-value">69</span>
+                    <span class="price-value">{{$basic->price}}</span>
                     <span class="month">per month</span>
                 </div>
                 <div class="pricing-content">
@@ -85,7 +92,14 @@
                         <li><span>.</span>Broker avg days-to-pay</li>
                         <li><span>.</span>Plus all Standard features</li>
                     </ul>
-                    <a class="pricingTable-signup" href="#">Sign up</a>
+                    @if (! optional(auth()->user())->hasActiveSubscription())
+
+                        <a href="{{route('subscribe.show')}}"><button>Subscribe</button></a>
+                    
+                        @else
+                          <button>Subscrption activated</button>
+                        @endif
+
                 </div>
             </div>
    
@@ -93,9 +107,9 @@
     
             <div class="pricingTable">
                 <div class="pricingTable-header">
-                    <h3 class="title">Professional</h3>
+                    <h3 class="title">{{$premium->slug}}</h3>
                     <span class="currency">$</span>
-                    <span class="price-value">99</span>
+                    <span class="price-value">{{$premium->price}}</span>
                     <span class="month">per month</span>
                 </div>
                 <div class="pricing-content">
@@ -106,7 +120,15 @@
                         <li><span>.</span>Broker avg days-to-pay</li>
                         <li><span>.</span>Plus all Standard features</li>
                     </ul>
-                    <a class="pricingTable-signup" href="#">Sign up</a>
+                    @if (! optional(auth()->user())->hasActiveSubscription())
+
+                    <a href="{{route('subscribe.show')}}"><button>Subscribe</button></a>
+
+                    @else
+                    <button>Subscrption activated</button>
+                        @endif
+
+ 
                 </div>
             </div>
 
@@ -115,9 +137,9 @@
       
             <div class="pricingTable">
                 <div class="pricingTable-header">
-                    <h3 class="title">Power</h3>
+                    <h3 class="title">{{$professional->slug}}</h3>
                     <span class="currency">$</span>
-                    <span class="price-value">159</span>
+                    <span class="price-value">{{$professional->price}}</span>
                     <span class="month">per month</span>
                 </div>
                 <div class="pricing-content">
@@ -128,13 +150,22 @@
                         <li><span>.</span>Broker avg days-to-pay</li>
                         <li><span>.</span>Plus all Standard features</li>
                     </ul>
-                    <a class="pricingTable-signup" href="#">Sign up</a>
+
+                        @if (! optional(auth()->user())->hasActiveSubscription())
+
+                            <a href="{{route('subscribe.show')}}"><button>Subscribe</button></a>
+                        
+                        @else
+                        <button>Subscrption activated</button>
+                        @endif
+
+                        
                 </div>
             </div>
-   
-        
 
         </div>
+
+        </form>
 
             </section>
 

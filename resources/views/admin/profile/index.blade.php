@@ -1,5 +1,11 @@
 @extends('layouts.admin')
 
+@section('title')
+
+<h4 class="text-light text-uppercase mb-0">Profile</h4>
+
+@endsection
+
 @section('content')
 
    <!----cards---->
@@ -144,7 +150,7 @@
                                 <td> {{$truck->length}} </td>
                                 <td> {{$truck->weight}} </td>
                                 <td> {{$truck->full == 1 ? 'Partial' : 'Full'}} </td>
-                                <td> ${{$load->offer}} </td>
+                                <td> ${{$truck->offer}} </td>
                                 <td> {{$truck->startDate}} </td>
                                 <td> {{$truck->endDate}} </td>
                                 <td class="action">

@@ -20,6 +20,18 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
+    'paypal' => [
+        'base_uri' => env('PAYPAL_BASE_URI'),
+        'client_id' => env('PAYPAL_CLIENT_ID'),
+        'client_secret' => env('PAYPAL_CLIENT_SECRET'),
+        'class' => App\Http\Services\PaypalService::class,
+        'plans' => [
+            'basic' => env('PAYPAL_BASIC'),
+            'premium' => env('PAYPAL_PREMIUM'),
+            'pro' => env('PAYPAL_PRO'),
+        ],
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

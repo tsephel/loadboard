@@ -4,22 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Plan;
+
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    public function subscription(){
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+        $basic = Plan::where(['id'=> 1])->first();
+        $premium = Plan::where(['id'=> 2])->first();
+        $professional = Plan::where(['id'=> 3])->first();
+
+        return view('frontend.home', compact('basic', 'premium', 'professional'));
+
+    }
    
 }

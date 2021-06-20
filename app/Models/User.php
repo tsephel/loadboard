@@ -121,6 +121,18 @@ class User extends Authenticatable
         return $this->hasMany(BusinessVerify::class);
     }
 
+    public function subscription(){
+
+        return $this->hasOne(Subscription::class);
+    }
+
+    public function hasActiveSubscription(){
+        //the user has subscription and its not null when we call is active than it returns true 
+        //but if the subscription is not acive than it returns false
+        //user doesnt have subscription than its null and returns false
+        return optional($this->subscription)->isActive() ?? false;
+    }
+
 
 
 

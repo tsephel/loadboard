@@ -1,5 +1,11 @@
 @extends('layouts.admin')
 
+@section('title')
+
+<h4 class="text-light text-uppercase mb-0">Business Verification</h4>
+
+@endsection
+
 @section('content')
 
  <!----cards---->

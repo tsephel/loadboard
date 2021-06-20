@@ -26,7 +26,6 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
   
 </head>
 
@@ -84,7 +83,7 @@
 
                       @if (Auth::user()->isShipper())
 
-                      <li class="nav-item"><a href="/admin" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
+                      <li class="nav-item"><a href="/userdash" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
 
                       <li class="nav-item"><a href="{{route('profile.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Profile</a></li>
 
@@ -103,7 +102,7 @@
                      
                       @if (Auth::user()->isCarrier())
 
-                      <li class="nav-item"><a href="/admin" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
+                      <li class="nav-item"><a href="/userdash" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
 
                       <li class="nav-item"><a href="{{route('profile.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Profile</a></li>
 
@@ -116,7 +115,7 @@
                                       
                       @if (Auth::user()->isBroker())
 
-                      <li class="nav-item"><a href="/admin" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
+                      <li class="nav-item"><a href="/userdash" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>
 
                       <li class="nav-item"><a href="{{route('profile.index')}}" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3 "></i>Profile</a></li>
 
@@ -141,7 +140,7 @@
                 <div class="row align-item-center">
                   
                   <div class="col-md-8">
-                    <h4 class="text-light text-uppercase mb-0">Post Loads</h4>
+                    @yield('title')
                   </div>
 
 
