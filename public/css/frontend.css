@@ -57,8 +57,8 @@ html {
   height: 80vh;
   background: linear-gradient(
       to top,
-      rgba(38, 38, 38, 0.7),
-      rgba(38, 38, 38, 0.6)
+      rgba(38, 38, 38, 0.3),
+      rgba(38, 38, 38, 0.3)
     ),
     url(/images/hero.jpg) center no-repeat;
   background-size: cover;
@@ -344,6 +344,16 @@ html {
   background: #566573;
 }
 
+.contact-heading{
+  font-size: 5rem;
+  font-weight: 300;
+  color: #333;
+  margin-bottom: 3rem;
+  text-align: center;
+
+}
+
+
 .login-page {
   width: 100%;
   height: 200vh;
@@ -463,123 +473,91 @@ select{
 
 
 /* Contact Form */
-.contact {
+.section-4 {
   width: 100%;
-  height: 100vh;
-  background-color: #ECF0F1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-
-.contact-wrapper {
-  width: 80%;
-  height: 70rem;
-  display: flex;
-  box-shadow: 0 3rem 7rem rgba(0, 0, 0, 0.5);
-}
-
-.contact-left {
-  width: 45%;
-}
-
-.contact-right {
-  width: 60%;
-  background-color: #eee;
-  padding: 3rem 10rem 10rem 10rem;
-}
-
-.contact-heading {
-  font-family: "Baloo Da 2", serif;
-  font-size: 6rem;
-  font-weight: 300;
-  color: #272727;
-  margin-bottom: 5rem;
-  text-align: center;
-}
-
-.contact-right form {
-  width: 100%;
+  height: 90vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
 
-.input-group {
-  position: relative;
+.form-container {
+  width: 70%;
+  height: 40%;
+  background-color: #e5e9ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0.3rem 0.3rem 0.4rem #ccc, -0.1rem -0.1rem 0.4rem #ccc;
+  border-radius: 0.5rem;
+  perspective: 100rem;
 }
 
-.field {
+.form-img {
   width: 45rem;
-  background-color: transparent;
+  background-color: rgba(50, 231, 255, 0.8);
+  padding: 5rem;
+  opacity: 0.8;
+  box-shadow: -3rem 3rem 4rem #aaa;
+  border-radius: 0.5rem;
+  transform: rotateY(20deg);
+  transition: all 0.5s;
+}
+
+.form-img:hover {
+  transform: translateY(-2rem) rotateY(20deg);
+  box-shadow: -5rem 5rem 7rem #aaa;
+}
+
+.contact-form {
+  width: 45rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 3rem 3rem 4rem #aaa;
+  transform: rotateY(-20deg);
+  transition: all 0.5s;
+}
+
+.contact-form:hover {
+  transform: translateY(-2rem) rotateY(-20deg);
+  box-shadow: 5rem 5rem 7rem #aaa;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
   border: none;
-  border-bottom: 0.2rem solid #636363;
-  margin: 3rem 0;
-  padding: 1rem 1rem 1rem 0;
-  font-family: "Muli", serif;
-  font-size: 1.6rem;
-  color: #4b4b4b;
+  border-radius: 2rem;
+  box-shadow: inset 0.1rem 0.1rem 0.2rem #ddd, inset -0.1rem -0.1rem 0.2rem #ddd;
 }
 
-.input-group input {
-  height: 4rem;
+.contact-form textarea {
+  max-height: 15rem;
+  min-height: 10rem;
+  max-width: 100%;
+  min-width: 70%;
 }
 
-.input-group textarea {
-  max-height: 7rem;
-  max-width: 45rem;
-}
-
-.field:focus {
-  border-bottom-style: solid;
-}
-
-.input-group label {
-  position: absolute;
-  left: 0;
-  font-family: "Baloo Da 2", serif;
-  font-size: 1.8rem;
-  color: #4b4b4b;
-  text-transform: uppercase;
-  pointer-events: none;
-  transition: all 0.3s;
-}
-
-.input-label {
-  bottom: 3rem;
-}
-
-.message {
-  bottom: 6rem;
-}
-
-.field:focus{
-  outline: none;
-}
-
-.field:focus ~ label{
-  transform: translateY(-3rem);
-  font-size: 1.2rem;
-}
-
-.submit-btn {
-  width: 45rem;
-  height: 5rem;
-  background-color: #c29525;
+.contact-form input[type="submit"] {
+  background-color: rgba(50, 231, 255, 0.8);
   color: #fff;
-  border: none;
-  margin-top: 2rem;
-  font-family: "Muli", serif;
-  font-size: 2rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
+  font-weight: bolder;
+  letter-spacing: 0.5rem;
   cursor: pointer;
-  text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+  transition: background-color 0.5s;
 }
+
+.contact-form input[type="submit"]:hover {
+  background-color: #32e7ff;
+}
+
 
 /* End of Contact Form */
 
@@ -730,6 +708,96 @@ select{
 }
 
 
+/* Alert Messsage */
+.alert .inner {
+  display: block;
+  padding: 6px;
+  margin: 6px;
+  border-radius: 3px;
+  border: 1px solid rgb(180,180,180);
+  background-color: rgb(212,212,212);
+}
+
+.alert .close {
+  float: right;
+  margin: 3px 12px 0px 0px;
+  cursor: pointer;
+}
+
+.alert .inner,.alert .close {
+  color: rgb(88,88,88);
+}
+
+.alert input {
+  display: none;
+}
+
+.alert input:checked ~ * {
+  animation-name: dismiss,hide;
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-delay: 0s,100ms;
+}
+
+.alert.error .inner {
+  border: 1px solid rgb(238,211,215);
+  background-color: rgb(242,222,222);
+}
+
+.alert.error .inner,.alert.error .close {
+  color: rgb(185,74,72);
+}
+
+.alert.success .inner {
+  border: 1px solid rgb(214,233,198);
+  background-color: rgb(223,240,216);
+}
+
+.alert.success .inner,.alert.success .close {
+  color: rgb(70,136,71);
+}
+
+.alert.info .inner {
+  border: 1px solid rgb(188,232,241);
+  background-color: rgb(217,237,247);
+}
+
+.alert.info .inner,.alert.info .close {
+  color: rgb(58,135,173);
+}
+
+.alert.warning .inner {
+  border: 1px solid rgb(251,238,213);
+  background-color: rgb(252,248,227);
+}
+
+.alert.warning .inner,.alert.warning .close {
+  color: rgb(192,152,83);
+}
+
+@keyframes dismiss {
+  0% {
+    opacity: 1;
+  }
+  90%, 100% {
+    opacity: 0;
+    font-size: 0.1px;
+    transform: scale(0);
+  }
+}
+
+@keyframes hide {
+  100% {
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+  }
+}
 
 
 /* Responsive */
@@ -1530,4 +1598,119 @@ select{
   color: black;
 }
 
+
+
+
+
+.main-container {
+  height: 30vh;
+  margin: 200px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.main-container h2 {
+  margin: 0 0 80px 0;
+  color: #8373e6;
+  font-size: 30px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+
+.radio-buttons {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.custom-radio input {
+  display: none;
+}
+
+.radio-btn {
+  margin: 10px;
+  width: 200px;
+  height: 250px;
+  border: 3px solid transparent;
+  display: inline-block;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 0 20px #c3c3c367;
+  cursor: pointer;
+}
+
+.radio-btn > i {
+  color: #ffffff;
+  background-color: #036bb1;
+  font-size: 20px;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) scale(4);
+  border-radius: 50px;
+  padding: 3px;
+  transition: 0.2s;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.radio-btn .hobbies-icon {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.radio-btn .hobbies-icon i {
+  color: #036bb1;
+  line-height: 80px;
+  font-size: 60px;
+}
+
+.radio-btn .hobbies-icon h3 {
+  color: #036bb1;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.radio-btn .hobbies-icon span {
+  color: #036bb1;
+  font-family: "Raleway", sans-serif;
+  font-size: 10px;
+  font-weight: 100;
+  text-transform: lowercase;
+}
+
+.custom-radio input:checked + .radio-btn {
+  border: 3px solid #036bb1;
+}
+
+.custom-radio input:checked + .radio-btn > i {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.blue-btn-pay{
+  text-align: center; 
+}
+
+#payButton {
+  width: 35rem;
+  height: 5rem;
+  background-color: #036bb1;
+  color: #fff;
+  border-radius: 3rem;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+}
 

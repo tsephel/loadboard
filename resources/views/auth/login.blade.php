@@ -16,18 +16,33 @@
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Enter Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                             @error('email')
-                                <span class="invalid-feedback" role="alert">
+                            <div class="alert error">
+                                <input type="checkbox" id="alert1"/>
+                            <label class="close" title="close" for="alert1">
+                            <i class="icon-remove"></i>
+                            </label>
+                                <p class="inner">
+                                    <strong>Warning!</strong> {{ $message }}
+                                </p>
+                            </div>
+                                <!-- <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
-                                </span>
+                                </span> -->
                             @enderror
 
 
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Enter password" required autocomplete="current-password">
 
                             @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                <div class="alert error">
+                                    <input type="checkbox" id="alert1"/>
+                                <label class="close" title="close" for="alert1">
+                                <i class="icon-remove"></i>
+                                </label>
+                                    <p class="inner">
+                                        <strong>Warning!</strong> {{ $message }}
+                                    </p>
+                                </div>
                             @enderror
 
 

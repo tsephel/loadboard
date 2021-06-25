@@ -25,21 +25,60 @@
 @include('includes.nav_alter')
 
  <!-- Bootstrap Core CSS -->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ 
 
 <section class="section-3 container">
 
     <form action="{{route('subscribe.store')}}" method="POST" id="paymentForm">
     @csrf
 
+    <div class="main-container">
+      <h2>Choose your subscription plan</h2>
+      <div class="radio-buttons">
+      @foreach ($plans as $plan)
+        <label class="custom-radio">
+          <input type="radio" name="plan" value="{{$plan->slug}}" checked />
+          <span class="radio-btn"
+            ><i class="fa fa-check"></i>
+            <div class="hobbies-icon">
+              <i class="fa fa-money"></i>
+              <h3>{{$plan->slug}}</h3>
+              <h3>${{$plan->price}}</h3>
+              <span>per month</span>
+                
+            </div>
+          </span>
+        </label>
+        @endforeach
+ 
+      </div>
+    </div>
 
-    <div class = 'row mt-3'>
-        <div class='col-md-12'>
-            <label>
-                <h1 class="section-3-heading">Choose your package</h1>
-            </label>
 
-            <div class='form-group'>
+    <div class="main-container">
+      <h2>Choose your payment method</h2>
+      <div class="radio-buttons">
+      @foreach ($paymentPlatforms as $paymentPlatform)
+        <label class="custom-radio">
+          <input type="radio" name="payment_platform" value="{{$paymentPlatform->id}}" checked />
+          <span class="radio-btn"
+            ><i class="fa fa-check"></i>
+            <div class="hobbies-icon">
+              <i class="fa fa-paypal"></i>
+              <h3>{{$paymentPlatform->name}}</h3>
+                
+            </div>
+          </span>
+        </label>
+        @endforeach
+ 
+      </div>
+    </div>
+
+
+
+
+            <!-- <div class='form-group'>
                 <div class="btn-group btn-group-toggle" data-toggle='buttons'>
                     @foreach ($plans as $plan)
                     
@@ -57,11 +96,11 @@
                     @endforeach
 
                 </div>
-            </div>
-        </div>
-    </div>
+            </div> -->
+        <!-- </div>
+    </div> -->
 
-    <div class = 'row mt-3'>
+    <!-- <div class = 'row mt-3'>
         <div class='col-md-12'>
             <label>
                 <h1 class="section-3-heading">Choose your payment method</h1>
@@ -88,12 +127,14 @@
 						</div>
 
                 </div>
-            </div>
+            </div> -->
 
+        <div class='blue-btn-pay'>
+        <button type="submit" id="payButton">Subscribe</button>
 
-    <div class='text-center mt-3'>
-        <button type="submit" id="payButton" class='btn btn-primary btn-lg'>Subscribe</button>
-    </div>
+        </div>
+        
+
     
     </form>
 
